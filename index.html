@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Цифровой рубль</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/d_ruble.svg" type="image/png">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Цифровой Рубль</div>
+            <button class="menu-toggle">☰</button>
+            <ul class="menu">
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+                <li><a href="#demo">Демо</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <section id="hero" class="hero">
+        <h1>Цифровой рубль: будущее финансов</h1>
+        <p>Безопасность, скорость и доступность на новом уровне с использованием блокчейн-технологий.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2>О проекте</h2>
+        <div class="content">
+            <img src="img/digital-ruble.jpg" alt="Цифровой рубль" class="about-img">
+            <div class="text">
+                <p>Цифровой рубль — это новая форма денег, основанная на технологии блокчейн. Он будет обеспечивать
+                    мгновенные переводы, высокий уровень безопасности и доступность для каждого гражданина.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <h2>Преимущества Цифрового рубля</h2>
+        <div class="benefit-list">
+            <div class="benefit-item">
+                <img src="img/secure-payment.jpg" alt="Безопасность">
+                <p>Высокий уровень безопасности благодаря технологии блокчейн.</p>
+            </div>
+            <div class="benefit-item">
+                <img src="img/fast-transaction.jpg" alt="Скорость">
+                <p>Мгновенные переводы между пользователями без посредников.</p>
+            </div>
+            <div class="benefit-item">
+                <img src="img/transparent.jpg" alt="Прозрачность">
+                <p>Все транзакции в цифровом рубле записываются в общедоступной системе, обеспечивая прозрачность
+                    операций.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo">
+        <h2>Как это работает?</h2>
+        <p>Пример работы цифрового рубля на основе технологии блокчейна:</p>
+        <div class="transaction-simulator">
+            <input type="text" id="sender" placeholder="Отправитель">
+            <input type="text" id="receiver" placeholder="Получатель">
+            <input type="number" id="amount" placeholder="Сумма">
+            <button id="sendBtn">Создать транзакцию</button>
+        </div>
+        <div id="blockchain">
+            <h3>Цепочка транзакций</h3>
+            <div id="blocks"></div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Журавлев Иван. Права не защищены.</p>
+            <p><a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
