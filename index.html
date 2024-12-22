@@ -21,15 +21,15 @@
                 <li><a href="#benefits">Преимущества</a></li>
                 <li><a href="#demo">Демо</a></li>
                 <li><a href="#contact">Контакты</a></li>
+                <li><a href="#roadmap">Дорожная карта</a></li>
             </ul>
         </div>
     </header>
 
-
-
     <section id="hero" class="hero">
         <h1>Цифровой рубль: будущее финансов</h1>
         <p>Безопасность, скорость и доступность на новом уровне с использованием блокчейн-технологий.</p>
+        <button class="cta-button">Узнать больше</button>
     </section>
 
     <section id="about" class="about">
@@ -39,6 +39,8 @@
             <div class="text">
                 <p>Цифровой рубль — это новая форма денег, основанная на технологии блокчейн. Он будет обеспечивать
                     мгновенные переводы, высокий уровень безопасности и доступность для каждого гражданина.</p>
+                <p>В ближайшие годы цифровая валюта будет играть ключевую роль в экономике России, предлагая решения для
+                    улучшения финансовой доступности и повышения безопасности транзакций.</p>
             </div>
         </div>
     </section>
@@ -59,6 +61,11 @@
                 <p>Все транзакции в цифровом рубле записываются в общедоступной системе, обеспечивая прозрачность
                     операций.</p>
             </div>
+            <div class="benefit-item">
+                <img src="img/easy-access.jpg" alt="Доступность">
+                <p>Цифровой рубль доступен через мобильные приложения и интернет-банкинг, что делает его удобным и
+                    доступным для всех пользователей.</p>
+            </div>
         </div>
     </section>
 
@@ -66,16 +73,27 @@
         <div class="transaction-simulator">
             <h2>Как это работает?</h2>
             <p>Пример работы цифрового рубля на основе технологии блокчейна:</p>
-
-            <input type="text" id="sender" placeholder="Отправитель">
-            <input type="text" id="receiver" placeholder="Получатель">
-            <input type="number" id="amount" placeholder="Сумма">
-            <button id="sendBtn">Создать транзакцию</button>
+            <div class="transaction-fields">
+                <input type="text" id="sender" placeholder="Отправитель">
+                <input type="text" id="receiver" placeholder="Получатель">
+                <input type="number" id="amount" placeholder="Сумма">
+                <button id="sendBtn">Создать транзакцию</button>
+            </div>
         </div>
         <div id="blockchain">
             <h3>Цепочка транзакций</h3>
             <div id="blocks"></div>
         </div>
+    </section>
+
+    <section id="contact" class="contacts">
+        <h2>Связаться с нами</h2>
+        <form class="contact-form">
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <input type="email" id="email" placeholder="Ваш email" required>
+            <textarea id="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+            <button type="submit">Отправить сообщение</button>
+        </form>
     </section>
 
 
