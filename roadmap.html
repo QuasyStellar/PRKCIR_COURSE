@@ -13,7 +13,6 @@
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: #fff;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             height: 100vh;
@@ -72,12 +71,11 @@
         footer {
             background: #1e1e1e;
             padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
             text-align: center;
             border-top: 1px solid #333;
             color: #ccc;
+            margin-top: auto;
+            /* Это гарантирует, что футер будет всегда внизу */
         }
 
         footer .footer-content a {
@@ -188,6 +186,116 @@
         .hex-connection:hover {
             background: #ff9800;
         }
+
+        /* Медиазапросы для адаптивности */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+
+            .hex-grid {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hex {
+                width: 100px;
+                height: 90px;
+            }
+
+            .hex:nth-child(1) {
+                top: 0px;
+                left: 0px;
+            }
+
+            .hex:nth-child(2) {
+                top: 0px;
+                left: 110px;
+            }
+
+            .hex:nth-child(3) {
+                top: 0px;
+                left: 220px;
+            }
+
+            .hex:nth-child(4) {
+                top: 100px;
+                left: 55px;
+            }
+
+            .hex:nth-child(5) {
+                top: 100px;
+                left: 165px;
+            }
+
+            .hex:nth-child(6) {
+                top: 200px;
+                left: 110px;
+            }
+
+            .menu li {
+                padding: 5px;
+            }
+
+            .footer-content {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hex-grid {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hex {
+                width: 80px;
+                height: 70px;
+            }
+
+            .hex:nth-child(1) {
+                top: 0px;
+                left: 0px;
+            }
+
+            .hex:nth-child(2) {
+                top: 0px;
+                left: 90px;
+            }
+
+            .hex:nth-child(3) {
+                top: 0px;
+                left: 180px;
+            }
+
+            .hex:nth-child(4) {
+                top: 70px;
+                left: 45px;
+            }
+
+            .hex:nth-child(5) {
+                top: 70px;
+                left: 135px;
+            }
+
+            .hex:nth-child(6) {
+                top: 140px;
+                left: 90px;
+            }
+        }
     </style>
 </head>
 
@@ -247,6 +355,10 @@
         const hexes = document.querySelectorAll('.hex');
         const roadmap = document.getElementById('roadmap');
 
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isTouching = false;
+
         function createConnections() {
             hexes.forEach((hex, index) => {
                 if (index < hexes.length - 1) {
@@ -275,6 +387,7 @@
 
         window.onload = createConnections;
 
+        // Обработка мыши
         roadmap.addEventListener('mousemove', (event) => {
             const x = event.clientX;
             const y = event.clientY;
@@ -286,6 +399,33 @@
             const deltaY = (y - centerY) / centerY;
 
             hexGrid.style.transform = `rotateX(${-deltaY * 10}deg) rotateY(${deltaX * 10}deg)`;
+        });
+
+        // Обработка сенсорных касаний
+        roadmap.addEventListener('touchstart', (event) => {
+            isTouching = true;
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+        });
+
+        roadmap.addEventListener('touchmove', (event) => {
+            if (!isTouching) return;
+
+            const x = event.touches[0].clientX;
+            const y = event.touches[0].clientY;
+
+            const deltaX = (x - touchStartX) / window.innerWidth;
+            const deltaY = (y - touchStartY) / window.innerHeight;
+
+            hexGrid.style.transform = `rotateX(${-deltaY * 10}deg) rotateY(${deltaX * 10}deg)`;
+
+            // Обновление начальных координат для следующего касания
+            touchStartX = x;
+            touchStartY = y;
+        });
+
+        roadmap.addEventListener('touchend', () => {
+            isTouching = false;
         });
     </script>
 </body>
