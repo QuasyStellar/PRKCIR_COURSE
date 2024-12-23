@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.roadmap {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+}
+
+.blockchain {
+    display: flex;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(-30deg);
+    animation: rotate 10s infinite linear;
+}
+
+.block {
+    width: 200px;
+    height: 100px;
+    margin: 10 background: linear-gradient(145deg, #4caf50, #2e7d32);
+    border: 2px solid #81c784;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1rem;
+    transform: translateZ(calc(var(--z) * 120px));
+    transition: transform 0.3s ease-in-out;
+}
+
+.block h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.block p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(20deg) rotateY(-30deg);
+    }
+
+    to {
+        transform: rotateX(20deg) rotateY(330deg);
+    }
+}

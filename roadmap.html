@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Дорожная карта: Шестиугольники</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background: #1e1e1e;
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+            z-index: 10;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        .menu li a.active,
+        .menu li a:hover {
+            color: #81c784;
+        }
+
+        footer {
+            background: #1e1e1e;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #333;
+            color: #ccc;
+        }
+
+        footer .footer-content a {
+            color: #81c784;
+            text-decoration: none;
+        }
+
+        footer .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .roadmap {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh - 150px);
+            /* оставляем пространство для header и footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            transition: transform 0.1s ease;
+            z-index: 1;
+        }
+
+        .hex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 450px;
+            height: 450px;
+        }
+
+        .hex {
+            position: absolute;
+            width: 150px;
+            height: 130px;
+            background: linear-gradient(145deg, #4caf50, #2e7d32);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 2px solid #81c784;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1rem;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .hex:nth-child(1) {
+            top: 0px;
+            left: 0px;
+        }
+
+        .hex:nth-child(2) {
+            top: 0px;
+            left: 180px;
+        }
+
+        .hex:nth-child(3) {
+            top: 0px;
+            left: 360px;
+        }
+
+        .hex:nth-child(4) {
+            top: 140px;
+            left: 90px;
+        }
+
+        .hex:nth-child(5) {
+            top: 140px;
+            left: 270px;
+        }
+
+        .hex:nth-child(6) {
+            top: 280px;
+            left: 180px;
+        }
+
+        .hex:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hex h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .hex p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .hex-connection {
+            position: absolute;
+            width: 2px;
+            background: #81c784;
+            transform-origin: top left;
+            z-index: -1;
+        }
+
+        .hex-connection:hover {
+            background: #ff9800;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Цифровой Рубль</div>
+            <button class="menu-toggle">☰</button>
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Подробнее</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <li><a class="active" href="roadmap.html">Дорожная карта</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="roadmap" id="roadmap">
+        <div class="hex-grid">
+            <div class="hex" id="hex1">
+                <h3>Этап 1</h3>
+                <p>Идея и исследования.</p>
+            </div>
+            <div class="hex" id="hex2">
+                <h3>Этап 2</h3>
+                <p>Разработка прототипа.</p>
+            </div>
+            <div class="hex" id="hex3">
+                <h3>Этап 3</h3>
+                <p>Масштабирование.</p>
+            </div>
+            <div class="hex" id="hex4">
+                <h3>Этап 4</h3>
+                <p>Окончательный запуск.</p>
+            </div>
+            <div class="hex" id="hex5">
+                <h3>Этап 5</h3>
+                <p>Расширение рынка.</p>
+            </div>
+            <div class="hex" id="hex6">
+                <h3>Этап 6</h3>
+                <p>Международное сотрудничество.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Журавлев Иван. Права не защищены.</p>
+            <p><a href="#contact">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const hexGrid = document.querySelector('.hex-grid');
+        const hexes = document.querySelectorAll('.hex');
+        const roadmap = document.getElementById('roadmap');
+
+        function createConnections() {
+            hexes.forEach((hex, index) => {
+                if (index < hexes.length - 1) {
+                    const currentRect = hex.getBoundingClientRect();
+                    const nextRect = hexes[index + 1].getBoundingClientRect();
+
+                    const connection = document.createElement('div');
+                    connection.className = 'hex-connection';
+
+                    const x1 = currentRect.left + currentRect.width / 2;
+                    const y1 = currentRect.top + currentRect.height / 2;
+                    const x2 = nextRect.left + nextRect.width / 2;
+                    const y2 = nextRect.top + nextRect.height / 2;
+
+                    const length = Math.hypot(x2 - x1, y2 - y1);
+                    const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+
+                    connection.style.width = `${length}px`;
+                    connection.style.transform = `rotate(${angle}deg)`;
+                    connection.style.top = `${y1}px`;
+                    connection.style.left = `${x1}px`;
+                    document.body.appendChild(connection);
+                }
+            });
+        }
+
+        window.onload = createConnections;
+
+        roadmap.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            const deltaX = (x - centerX) / centerX;
+            const deltaY = (y - centerY) / centerY;
+
+            hexGrid.style.transform = `rotateX(${-deltaY * 10}deg) rotateY(${deltaX * 10}deg)`;
+        });
+    </script>
+</body>
+
+</html>
