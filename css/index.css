@@ -33,7 +33,17 @@ header {
 .menu li a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    /* Сделать текст жирным */
+    font-size: 1.1rem;
+    /* Немного увеличить размер шрифта */
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+    /* Подсветка при наведении */
 }
 
 .menu-toggle {
@@ -44,6 +54,20 @@ header {
     color: white;
     cursor: pointer;
 }
+
+.menu li a.active {
+    color: #ffcc00;
+    /* Жёлтый цвет для выделенной ссылки */
+    font-weight: bold;
+    /* Жирный шрифт для выделенной ссылки */
+    border-bottom: 2px solid #ffcc00;
+    /* Подчёркивание для активной ссылки */
+}
+
+
+
+
+
 
 /* Hero */
 .hero {
@@ -129,7 +153,6 @@ header {
 
 /* Benefits Section */
 .benefits {
-    line-height: 1.4rem;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #f9f9f9;
@@ -145,6 +168,7 @@ header {
 
 .benefit-item {
     background-color: #ffffff;
+    line-height: 1.4rem;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -389,6 +413,12 @@ header {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     gap: 1rem;
+}
+
+.contact-form button:hover {
+    background-color: #003580;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .contacts .contact-form input,
