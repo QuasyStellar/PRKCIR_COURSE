@@ -17,14 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             items.forEach(item => {
                 const title = item.querySelector('title').textContent;
+                const imageUrl = getRandomPlaceholderImage();
                 const link = item.querySelector('link').textContent;
+                const description = item.querySelector('description') ? item.querySelector('description').textContent : 'No description';
 
                 const newsItem = document.createElement('div');
                 newsItem.className = 'news-item';
                 newsItem.innerHTML = `
+                    <img src="${imageUrl}" alt="news image">
                     <h2>${title}</h2>
-                    <a href="${link}" target="_blank">Читать далее</a>
+                    <p>${description}</p>
                 `;
+                
+                // Добавляем обработчик на клик по блоку
+                newsItem.addEventListener('click', () => {
+                    window.open(link, '_blank'); // Переход по ссылке
+                });
+
                 rssFeedContainer.appendChild(newsItem);
             });
         } catch (error) {
@@ -32,9 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
             rssFeedContainer.innerHTML = '<p>Не удалось загрузить новости.</p>';
         }
     }
-
+function getRandomPlaceholderImage() {
+        // Ссылка на случайное изображение с LoremFlickr
+        return `https://loremflickr.com/600/400?random=${Math.floor(Math.random() * 1000)}`;
+    }
     loadRSS();
 });
+
+    
 
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -44,5 +58,4 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.classList.toggle('open'); // Добавляем или убираем класс 'open'
     });
 });
-
 
