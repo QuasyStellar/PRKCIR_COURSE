@@ -187,10 +187,7 @@ header {
     margin: 0 auto;
 }
 
-.benefit-item:last-child {
-    width: 100%;
-    /* Занимает всю ширину контейнера */
-}
+
 
 /* Адаптивность */
 @media (max-width: 768px) {
@@ -227,14 +224,13 @@ header {
 .transaction-simulator {
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
-    gap: 1.5rem;
     margin: 0 auto;
-    font-size: 1.2rem;
-    padding: 4rem 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
 }
 
 .transaction-simulator input,
@@ -245,7 +241,10 @@ header {
     border-radius: 8px;
     border: 1px solid #ccc;
     margin-bottom: 1rem;
+    box-sizing: border-box;
+    /* Учет границ и padding в общей ширине */
 }
+
 
 .transaction-simulator button {
     background-color: #0047AB;
