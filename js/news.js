@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             items.forEach(item => {
                 const title = item.querySelector('title').textContent;
-                const imageUrl = getRandomPlaceholderImage();
+                const imageUrl = getRandomPlaceholderImage(title);
                 const link = item.querySelector('link').textContent;
                 const description = item.querySelector('description') ? item.querySelector('description').textContent : 'No description';
 
@@ -41,9 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
             rssFeedContainer.innerHTML = '<p>Не удалось загрузить новости.</p>';
         }
     }
-function getRandomPlaceholderImage() {
+function getRandomPlaceholderImage(title) {
         // Ссылка на случайное изображение с LoremFlickr
-        return `https://loremflickr.com/600/400?random=${Math.floor(Math.random() * 1000)}`;
+        return `https://placehold.co/600x400?text=${title}`;
+
     }
     loadRSS();
 });
