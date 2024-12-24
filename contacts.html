@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="icon" href="img/d_ruble.svg" type="image/png">
+    <title>Цифровой Рубль: Контакты</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">Цифровой Рубль</div>
+            <button class="menu-toggle">☰</button>
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Подробнее</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="roadmap.html">Дорожная карта</a></li>
+                <li><a class="active" href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+
+            <div class="contact-info">
+                <div>
+                    <h3>Адрес</h3>
+                    <p>Старомонетный пер., д. 3, к. 1, Москва, 119017</p>
+                </div>
+                <div>
+                    <h3>Телефон</h3>
+                    <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    <p><a href="tel:+74957654321">+7 (495) 765-43-21</a></p>
+                </div>
+                <div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@digital-ruble.ru">info@digital-ruble.ru</a></p>
+                </div>
+            </div>
+
+            <h3>Наше местоположение на карте</h3>
+            <div class="map-container" style="height: 400px;">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?q=центробанк&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <section id="contact" class="contacts">
+                <h2>Связаться с нами</h2>
+                <form class="contact-form">
+                    <input type="text" id="name" placeholder="Ваше имя" required>
+                    <input type="email" id="email" placeholder="Ваш email" required>
+                    <textarea id="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                    <button type="submit">Отправить сообщение</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Журавлев Иван. Права не защищены.</p>
+            <p><a href="#contact">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.querySelector(".menu-toggle").addEventListener("click", function () {
+            document.querySelector(".menu").classList.toggle("open");
+        });
+    </script>
+
+</body>
+
+</html>
