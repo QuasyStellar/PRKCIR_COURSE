@@ -76,7 +76,6 @@ main {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
 }
 
 .contacts {
@@ -85,7 +84,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 600px;
     /* Устанавливаем максимальную ширину */
     margin: 2rem auto;
     /* Центрируем элемент */
@@ -281,6 +280,7 @@ footer .footer-content a:hover {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 /* Стили для текста в блоках */
