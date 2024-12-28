@@ -17,4 +17,4 @@
 - **JavaScript** — для добавления динамичных элементов и взаимодействий, таких как работа с картами и новостями.
 
 ## Ссылка на проект:
-- **Сайт:** [https://danstudent1.github.io/DigitalRuble/](quasystellar.github.io/PRKCIR_COURSE/)
+- **Сайт:** [https://quasystellar.github.io/PRKCIR_COURSE/](https://quasystellar.github.io/PRKCIR_COURSE/)
